@@ -38,10 +38,10 @@ class CommentController {
   async updateComment(req, res, next) {
     try {
       const { comment_id } = req.params;
-      const { status } = req.body;
+      const { status, content } = req.body;
       const comment = await commentService.updateComment(
         comment_id,
-        { status },
+        { status, content },
         req.user.id,
         req.user.role
       );

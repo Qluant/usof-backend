@@ -142,4 +142,19 @@ vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
 
-docs/restricted/
+# User uploads (keep directory via .gitkeep)
+uploads/avatars/*
+!uploads/avatars/.gitkeep
+
+# License files
+LICENSE
+LICENSE*
+license*
+
+# Operating System & Editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace

@@ -1,60 +1,156 @@
 USE usof_db;
 
 INSERT INTO users (id, login, password, full_name, email, profile_picture, rating, role, is_email_confirmed) VALUES
-(1, 'admin', '$2b$10$wE9aW6vH/M2wRz2P6oYj7u3rXy6sM2gT5vL0.0oR6xPqW4yVnO6lO', 'System Administrator', 'admin@usof.com', 'default-avatar.png', 10, 'admin', TRUE),
-(2, 'johndoe', '$2b$10$wE9aW6vH/M2wRz2P6oYj7u3rXy6sM2gT5vL0.0oR6xPqW4yVnO6lO', 'John Doe', 'john@example.com', 'default-avatar.png', 5, 'user', TRUE),
-(3, 'alice_smith', '$2b$10$wE9aW6vH/M2wRz2P6oYj7u3rXy6sM2gT5vL0.0oR6xPqW4yVnO6lO', 'Alice Smith', 'alice@example.com', 'default-avatar.png', 8, 'user', TRUE),
-(4, 'bob_dev', '$2b$10$wE9aW6vH/M2wRz2P6oYj7u3rXy6sM2gT5vL0.0oR6xPqW4yVnO6lO', 'Bob Developer', 'bob@example.com', 'default-avatar.png', 2, 'user', TRUE),
-(5, 'emma_watson', '$2b$10$wE9aW6vH/M2wRz2P6oYj7u3rXy6sM2gT5vL0.0oR6xPqW4yVnO6lO', 'Emma Watson', 'emma@example.com', 'default-avatar.png', 4, 'user', TRUE)
-ON DUPLICATE KEY UPDATE id=id;
+(1, 'admin', '$2b$10$zAng3jqrSO/CBN52/1uoBuiwnN9bz00is5nlmwvBPM22Uoejco7wu', 'Game Guild Master', 'admin@usof.com', 'default-avatar.png', 520, 'admin', TRUE),
+(2, 'shadow_hunter', '$2b$10$zAng3jqrSO/CBN52/1uoBuiwnN9bz00is5nlmwvBPM22Uoejco7wu', 'Alex Rivers', 'alex@example.com', 'default-avatar.png', 45, 'user', TRUE),
+(3, 'valkyrie_pro', '$2b$10$zAng3jqrSO/CBN52/1uoBuiwnN9bz00is5nlmwvBPM22Uoejco7wu', 'Elena Vance', 'elena@example.com', 'default-avatar.png', 215, 'user', TRUE),
+(4, 'pixel_knight', '$2b$10$zAng3jqrSO/CBN52/1uoBuiwnN9bz00is5nlmwvBPM22Uoejco7wu', 'Marcus Reed', 'marcus@example.com', 'default-avatar.png', 32, 'user', TRUE),
+(5, 'cyber_samurai', '$2b$10$zAng3jqrSO/CBN52/1uoBuiwnN9bz00is5nlmwvBPM22Uoejco7wu', 'Kenji Sato', 'kenji@example.com', 'default-avatar.png', 164, 'user', TRUE),
+(6, 's1mple_aim', '$2b$10$zAng3jqrSO/CBN52/1uoBuiwnN9bz00is5nlmwvBPM22Uoejco7wu', 'Oleksandr K.', 's1mple@example.com', 'default-avatar.png', 340, 'user', TRUE),
+(7, 'tarnished_one', '$2b$10$zAng3jqrSO/CBN52/1uoBuiwnN9bz00is5nlmwvBPM22Uoejco7wu', 'Lord of Cinder', 'tarnished@example.com', 'default-avatar.png', 95, 'user', TRUE),
+(8, 'zombie_slayer', '$2b$10$zAng3jqrSO/CBN52/1uoBuiwnN9bz00is5nlmwvBPM22Uoejco7wu', 'Brad Cooper', 'brad@example.com', 'default-avatar.png', 80, 'user', TRUE),
+(9, 'tactical_breacher', '$2b$10$zAng3jqrSO/CBN52/1uoBuiwnN9bz00is5nlmwvBPM22Uoejco7wu', 'Jordan Hayes', 'jordan@example.com', 'default-avatar.png', 110, 'user', TRUE),
+(10, 'mid_or_feed', '$2b$10$zAng3jqrSO/CBN52/1uoBuiwnN9bz00is5nlmwvBPM22Uoejco7wu', 'Arthur Pendelton', 'arthur@example.com', 'default-avatar.png', 130, 'user', TRUE),
+(11, 'liberty_diver', '$2b$10$zAng3jqrSO/CBN52/1uoBuiwnN9bz00is5nlmwvBPM22Uoejco7wu', 'Helldiver John', 'diver@example.com', 'default-avatar.png', 175, 'user', TRUE),
+(12, 'astral_wizard', '$2b$10$zAng3jqrSO/CBN52/1uoBuiwnN9bz00is5nlmwvBPM22Uoejco7wu', 'Gale of Waterdeep', 'gale@example.com', 'default-avatar.png', 240, 'user', TRUE),
+(13, 'silver_witcher', '$2b$10$zAng3jqrSO/CBN52/1uoBuiwnN9bz00is5nlmwvBPM22Uoejco7wu', 'Geralt of Rivia', 'geralt@example.com', 'default-avatar.png', 310, 'user', TRUE),
+(14, 'deck_tinkerer', '$2b$10$zAng3jqrSO/CBN52/1uoBuiwnN9bz00is5nlmwvBPM22Uoejco7wu', 'Linus Hardware', 'linus@example.com', 'default-avatar.png', 85, 'user', TRUE),
+(15, 'grand_strategist', '$2b$10$zAng3jqrSO/CBN52/1uoBuiwnN9bz00is5nlmwvBPM22Uoejco7wu', 'Napoleon B.', 'napoleon@example.com', 'default-avatar.png', 190, 'user', TRUE),
+(16, 'monk_speedrunner', '$2b$10$zAng3jqrSO/CBN52/1uoBuiwnN9bz00is5nlmwvBPM22Uoejco7wu', 'Sun Wukong', 'wukong@example.com', 'default-avatar.png', 260, 'user', TRUE),
+(17, 'radiant_viper', '$2b$10$zAng3jqrSO/CBN52/1uoBuiwnN9bz00is5nlmwvBPM22Uoejco7wu', 'Sabine Callas', 'viper@example.com', 'default-avatar.png', 145, 'user', TRUE),
+(18, 'cozy_farmer', '$2b$10$zAng3jqrSO/CBN52/1uoBuiwnN9bz00is5nlmwvBPM22Uoejco7wu', 'Emily Pelican', 'emily@example.com', 'default-avatar.png', 60, 'user', TRUE),
+(19, 'rusty_builder', '$2b$10$zAng3jqrSO/CBN52/1uoBuiwnN9bz00is5nlmwvBPM22Uoejco7wu', 'Base Defense Pro', 'rust@example.com', 'default-avatar.png', 105, 'user', TRUE),
+(20, 'azeroth_raider', '$2b$10$zAng3jqrSO/CBN52/1uoBuiwnN9bz00is5nlmwvBPM22Uoejco7wu', 'Illidan Storm', 'raider@example.com', 'default-avatar.png', 420, 'user', TRUE)
+ON DUPLICATE KEY UPDATE password=VALUES(password), is_email_confirmed=TRUE;
 
 INSERT INTO categories (id, title, description) VALUES
-(1, 'Node.js', 'Questions related to server-side JavaScript development with Node.js.'),
-(2, 'MySQL', 'Relational database management system, SQL queries, and performance.'),
-(3, 'Express', 'Fast, unopinionated, minimalist web framework for Node.js.'),
-(4, 'JavaScript', 'Core language features, ECMAScript standards, and asynchronous programming.'),
-(5, 'REST API', 'Design, architecture, standards, and best practices for building REST APIs.')
-ON DUPLICATE KEY UPDATE id=id;
+(1, 'Action & RPG', 'Build strategies, boss mechanics, character attributes, and quest walkthroughs.'),
+(2, 'Competitive & FPS', 'Aim training, map callouts, tactical executes, and competitive meta.'),
+(3, 'Strategy & Base Building', 'Economy optimization, 4X expansion, base defense, and grand strategy.'),
+(4, 'Indie & Survival', 'Survival mechanics, crafting guides, permadeath tips, and indie gems.'),
+(5, 'Hardware & Handhelds', 'Performance tuning, FPS fixes, Steam Deck configs, and graphics tweaks.'),
+(6, 'Counter-Strike 2', 'Sub-tick mechanics, smoke lineups, weapon spray patterns, and Premier mode.'),
+(7, 'Dota 2', 'Hero drafting, item timings, lane equilibrium, and International meta.'),
+(8, 'Project Zomboid', 'Moodle survival, carpentry bases, infection treatment, and Knox county maps.'),
+(9, 'Civilization VI', 'District adjacency, policy cards, civic trees, and deity win conditions.'),
+(10, 'Elden Ring', 'Scadutree fragments, boss cheese, talisman synergies, and PvP colosseums.'),
+(11, 'Baldurs Gate 3', 'Multiclass synergies, Honour mode strats, companion builds, and dice rolls.'),
+(12, 'Cyberpunk 2077', 'Cyberware setups, Phantom Liberty choices, netrunning queues, and vehicle combat.'),
+(13, 'Black Myth: Wukong', 'Spell combinations, gourd soaks, transformation spirits, and secret bosses.'),
+(14, 'Valorant', 'Agent lineups, crosshair placement, economy rounds, and Radiant ranks.'),
+(15, 'Apex Legends', 'Movement tech, ring rotations, weapon tier lists, and ranked matchmaking.'),
+(16, 'Rust', 'Airfield puzzles, bunker designs, recoil control, and wipe day tactics.'),
+(17, 'Helldivers 2', 'Stratagem loadouts, automaton weakpoints, bug breaches, and Galactic War orders.'),
+(18, 'The Witcher 3', 'Grandmaster armor sets, alchemy decoctions, sign builds, and Death March tips.'),
+(19, 'World of Warcraft', 'Mythic+ dungeon routes, raid boss logs, class rotations, and addon setups.'),
+(20, 'Stardew Valley', 'Crop profit charts, ancient fruit wine, skull cavern runs, and community center.'),
+(21, 'Terraria', 'Hardmode boss progression, arena setups, accessory prefixes, and Zenith craft.'),
+(22, 'Hearts of Iron IV', 'Division templates, combat width, naval task forces, and supply hub logistics.'),
+(23, 'Rainbow Six Siege', 'Operator utility, site reinforcement, drone paths, and vertical gameplay angles.'),
+(24, 'Monster Hunter: World', 'Weapon masteries, mantle usage, jewel farming, and fatalis battle plans.'),
+(25, 'Starfield', 'Ship building blueprints, outpost resource hubs, weapon modding, and NG+ perks.')
+ON DUPLICATE KEY UPDATE title=VALUES(title), description=VALUES(description);
 
-INSERT INTO posts (id, author_id, title, content, status) VALUES
-(1, 2, 'How to handle async errors in Express middleware?', 'I am building an Express REST API and wondering what the best pattern is for catching asynchronous errors inside route handlers.', 'active'),
-(2, 3, 'Optimizing MySQL connection pooling in high traffic apps', 'What are the recommended settings for mysql2 connection pool limit and queue limits in Node.js?', 'active'),
-(3, 4, 'Differences between JWT and session-based authentication', 'Can someone explain when to choose stateless JWT tokens versus server-side Redis sessions?', 'active'),
-(4, 5, 'How to design many-to-many relationships in MySQL?', 'Need advice on designing junction tables with composite primary keys and foreign key constraints.', 'active'),
-(5, 2, 'Proper HTTP status codes for RESTful resources', 'Which status code is best when updating a resource partially versus completely?', 'active')
-ON DUPLICATE KEY UPDATE id=id;
+INSERT INTO posts (id, author_id, title, content, status, publish_date) VALUES
+(1, 6, 'CS2 Mirage Smoke Lineups: A-Site Execute from T-Roof with 100% Reliability', 'Consistent jumpthrow lineups for stairs, jungle, and CT spawn from T-roof on Counter-Strike 2 sub-tick servers. What crosshair positioning prevents gap leaks when throwing with running momentum?', 'active', '2026-10-21 14:32:10'),
+(2, 6, 'Best CS2 Launch Options and Video Settings for 360Hz Monitors in 2026', 'Testing low frametime latency with Nvidia Reflex On vs On+Boost, 4:3 stretched resolution vs native 1080p, and engine threads allocation. Which combination minimizes 1% low frame stuttering during heavy smoke grenades?', 'active', '2026-10-20 09:15:44'),
+(3, 10, 'Dota 2 Patch 7.37: Optimal Midlane Ward Placement and Rune Control Timings', 'With the latest water rune and bounty rune timing adjustments, what are the safest ward spots to spot enemy support rotations from the river without being dewarded by sentries?', 'active', '2026-10-18 22:07:33'),
+(4, 10, 'Top Carry Picks in Current Dota 2 Meta: Morphling vs Ursa vs Slark', 'Looking at win rates across Divine and Immortal brackets. When is it better to rush Battlefury vs early Diffusal Blade against tanky offlaners?', 'active', '2026-10-17 11:48:20'),
+(5, 8, 'Project Zomboid Build 42: How to Establish a Self-Sustaining Farm in Louisville', 'After water and power shutoff, what is the best rain collector barrel arrangement to pipe clean filtered water directly into indoor sinks? Also looking for best anti-pest crop spacing.', 'active', '2026-10-15 16:55:09'),
+(6, 8, 'Surviving the First Month in Project Zomboid: Essential Starter Traits and Skills', 'Is taking Very Underweight and High Thirst worth the positive perk points? How do you reliably power through the first week without catching fever or hyperthermia?', 'active', '2026-10-14 08:22:57'),
+(7, 7, 'Elden Ring Shadow of the Erdtree: Consort Radahn Deflection Hardtear Build', 'Radahns phase 2 light beams can be consistently mitigated using the Deflecting Hardtear in the Flask of Wondrous Physick. What weapon has the highest guard counter stagger value?', 'active', '2026-10-12 20:41:15'),
+(8, 7, 'Optimal Scadutree Fragment Route for Level 1 DLC Runs in Elden Ring', 'Planning a RL1 challenge run. Which fragment locations can be acquired through torrent riding without triggering mandatory boss encounters in Scadu Altus?', 'active', '2026-10-10 13:30:02'),
+(9, 12, 'Baldurs Gate 3 Honour Mode: 10/2 Bardadin vs 11/1 Fire Sorlock Comparison', 'Comparing endgame single-target nova damage for the final fight in Honour Mode. Which build has more reliable spell save DC to guarantee holds on legendary bosses?', 'active', '2026-10-08 07:19:44'),
+(10, 12, 'How to Counter Act 2 Shadow Curse and Myrkul Apostle in Baldurs Gate 3', 'Apostle of Myrkul prevents all healing in melee range. What summons or crowd control spell combos shut down the necromites before they heal the boss?', 'active', '2026-10-06 17:05:31'),
+(11, 5, 'Cyberpunk 2077 2.0: Apogee Sandevistan vs Militech Paraline Netrunner', 'Comparing Tier 5++ quickhack queue damage against legendary cyberpsycho encounters. Which perk setup offers faster room clearing speed on Very Hard?', 'active', '2026-10-04 10:52:18'),
+(12, 16, 'Black Myth: Wukong Chapter 4 Yellow Loong Stagger Strategy and Stance Rotation', 'Yellow Loongs aerial diving attacks deal massive thunder damage. What timing window is best to cast Cloud Step and Rock Solid to break his hyper armor?', 'active', '2026-10-02 21:37:55'),
+(13, 9, 'Rainbow Six Siege: Clubhouse Basement Defense Setup and Roam Routing', 'Detailed anchor and roamer setup for Church and Arsenal rooms. Which walls need soft destruction for rotation and where should Azami kiba barriers be positioned to deny breach from blue stairs?', 'active', '2026-09-30 14:14:42'),
+(14, 9, 'Best Weapon Attachments for Ash and Buck in Rainbow Six Siege Operation Twin Shells', 'Testing recoil spread patterns with Extended Barrel vs Flash Hider on the R4-C. Does the damage buff from extended barrel change the shots-to-kill against 2-speed and 3-speed defenders?', 'active', '2026-09-27 09:03:29'),
+(15, 11, 'Helldivers 2: Automaton Level 9 Super Helldive Best Stratagem Loadouts', 'Automaton Gunship patrols and Factory Striders require heavy anti-tank. Is Spear now superior to Quasar Cannon and Recoilless Rifle after the recent reload buffs?', 'active', '2026-09-25 18:47:16'),
+(16, 11, 'Helldivers 2 Terminid Crowd Control: Breaker Incendiary Alternatives', 'After the magazine reduction on Breaker Incendiary, what primary weapon and grenade combo offers the most ammo-efficient swarm clearing on Charbal-VII?', 'active', '2026-09-22 11:32:03'),
+(17, 15, 'Civ VI Deity Difficulty: First 50 Turns Build Order for Fast Science Victory', 'Do you recommend Scout -> Scout -> Settler or Scout -> Slinger -> Settler? How do you survive early barbarian horseman rushes on Deity without stalling district production?', 'active', '2026-09-19 07:58:50'),
+(18, 15, 'Civilization VI Gathering Storm: Best Policy Cards for High Culture Generation', 'Maximizing tourism from national parks and seaside resorts. Which government tier gives the most diplomatic favor to pass favorable World Congress resolutions?', 'active', '2026-09-16 16:24:37'),
+(19, 17, 'Valorant Bind Map Control: Viper Toxic Screen and Snake Bite Post-Plant Lineups', 'Complete guide for defending B-site on Bind. Where should the Poison Cloud orb be placed on hookah to deny early peekers without taking sniper fire?', 'active', '2026-09-13 12:11:24'),
+(20, 19, 'Rust 2x2 Bunker Base Design with Unlootable TC and High Wall Triangle Airlook', 'How to construct a cost-efficient solo/duo bunker base that costs less than 3000 stone per day in upkeep while requiring 24+ rockets to raid the core tool cupboard.', 'active', '2026-09-10 20:57:11'),
+(21, 13, 'The Witcher 3 Next-Gen Update: Euphoria Alchemy Build with Aerondight', 'Optimizing potion toxicity threshold and decoction combinations in Blood and Wine. Which runes and glyphs maximize crit chance on Grandmaster Feline silver swords?', 'active', '2026-09-07 09:43:58'),
+(22, 20, 'World of Warcraft The War Within: Season 1 Mythic+ Dungeon Tier List and Affixes', 'Which healer classes offer the best damage contribution and external defensive cooldowns for +12 and higher keystone push groups?', 'active', '2026-09-04 15:29:45'),
+(23, 18, 'Stardew Valley 1.6: Greenhouse Setup for Maximum Ancient Fruit Wine Profit', 'Optimal Iridium Sprinkler placement and Deluxe Retaining Soil configs. How many kegs in big sheds are needed to continuously process a full harvest every 7 days?', 'active', '2026-09-01 08:15:32'),
+(24, 4, 'Terraria Calamity Mod: Revengeance Mode Pre-Hardmode Boss Progression Guide', 'Best weapons and armor sets for defeating Desert Scourge, Crabulon, and Hive Mind. Which accessory reforges (Warding vs Menacing) provide better survivability?', 'active', '2026-08-28 22:01:19'),
+(25, 14, 'Best Performance and Battery Settings for Steam Deck OLED in Cyberpunk and CS2', 'Tuning TDP, manual GPU clock frequency, and CryoUtilities settings on SteamOS 3.5. How to achieve a stable 45 FPS lock with 3+ hours of battery life.', 'active', '2026-08-25 13:47:06'),
+(26, 6, 'CS2 Inferno Banana Control: Counter-Utility Timings for CT Side', 'How to prevent T-side explosive molotov rushes into car and sandbags. What double-HE grenade stack timing causes instant entry frags on banana?', 'active', '2026-08-22 17:33:53'),
+(27, 8, 'Project Zomboid Vehicle Mechanics: Repairing Engines and Siphoning Gas Safe Spots', 'Which vehicles have the largest trunk storage capacity for loot runs, and where are the safest gas stations in West Point to siphon fuel without alerting hordes?', 'active', '2026-08-19 06:19:40'),
+(28, 9, 'Rainbow Six Siege: Solis and Fenrir Nerf Impact on Ranked Meta', 'With the reduced sensor range on Solis and Fenrir dread mines reduced to 2 active triggers, which trap operators are now top priority in diamond and champion bans?', 'active', '2026-08-16 14:05:27'),
+(29, 7, 'Elden Ring DLC: Bloodfiends Blood Arm Arcane Scaling Soft Caps', 'Is it worth investing Arcane past 60 for the Bloodfiends Blood Arm? Testing blood loss buildup per heavy charged attack on Malenia and Fire Giant.', 'active', '2026-08-13 19:51:14'),
+(30, 11, 'Helldivers 2 Galactic War: How Liberation Percentages Actually Work', 'Explaining planetary decay rates, defense campaigns vs liberation campaigns, and how the global player base distribution affects mission impact score.', 'active', '2026-08-10 11:37:01')
+ON DUPLICATE KEY UPDATE title=VALUES(title), content=VALUES(content), publish_date=VALUES(publish_date);
 
 INSERT INTO post_categories (post_id, category_id) VALUES
-(1, 1),
-(1, 3),
-(2, 1),
-(2, 2),
-(3, 1),
-(3, 5),
-(4, 2),
-(5, 5)
+(1, 2), (1, 6),
+(2, 2), (2, 5), (2, 6),
+(3, 1), (3, 7),
+(4, 1), (4, 7),
+(5, 4), (5, 8),
+(6, 4), (6, 8),
+(7, 1), (7, 10),
+(8, 1), (8, 10),
+(9, 1), (9, 11),
+(10, 1), (10, 11),
+(11, 1), (11, 12),
+(12, 1), (12, 13),
+(13, 2), (13, 23),
+(14, 2), (14, 23),
+(15, 2), (15, 17),
+(16, 2), (16, 17),
+(17, 3), (17, 9),
+(18, 3), (18, 9),
+(19, 2), (19, 14),
+(20, 4), (20, 16),
+(21, 1), (21, 18),
+(22, 1), (22, 19),
+(23, 4), (23, 20),
+(24, 4), (24, 21),
+(25, 5), (25, 12), (25, 6),
+(26, 2), (26, 6),
+(27, 4), (27, 8),
+(28, 2), (28, 23),
+(29, 1), (29, 10),
+(30, 2), (30, 17)
 ON DUPLICATE KEY UPDATE post_id=post_id;
 
-INSERT INTO comments (id, post_id, author_id, content, status) VALUES
-(1, 1, 3, 'You can wrap your controllers with an async handler wrapper function or use Express 5 native promise handling.', 'active'),
-(2, 1, 4, 'Always make sure to pass the error to next(err) so your centralized error handler catches it.', 'active'),
-(3, 2, 1, 'Set a reasonable connectionLimit matching your database server capacity, usually 10 to 20 for single Node instances.', 'active'),
-(4, 3, 2, 'JWT is great for microservices and mobile apps where statelessness is beneficial.', 'active'),
-(5, 4, 3, 'Use a junction table containing both foreign keys as a composite primary key.', 'active')
-ON DUPLICATE KEY UPDATE id=id;
+INSERT INTO comments (id, post_id, author_id, content, status, publish_date) VALUES
+(1, 1, 3, 'Line up with the antenna on the left roof and tap W right before releasing. Zero smoke gaps on CT spawn every single round.', 'active', '2026-10-22 10:15:22'),
+(2, 2, 14, 'Nvidia Reflex On + Boost causes slight frame drops on CPU-bound scenarios. Leave it on simple On for the lowest frametime variance.', 'active', '2026-10-20 14:47:38'),
+(3, 3, 2, 'Ward right behind the enemy tier 1 tower hill. Most midlaners never check that high ground with sentries.', 'active', '2026-10-18 23:32:11'),
+(4, 5, 8, 'Always connect at least 4 rain barrels with a wrench to the sink below. Never drink straight from barrels until boiled.', 'active', '2026-10-15 19:08:55'),
+(5, 7, 10, 'Deflecting Hardtear completely trivializes Radahns cross-slash attack. You can get three consecutive guard counters in.', 'active', '2026-10-13 07:52:43'),
+(6, 9, 13, 'Bardadin gives you 6th level spell slots plus smites that crit for 150+ damage on vulnerable enemies.', 'active', '2026-10-08 16:39:27'),
+(7, 13, 3, 'Azami barrier on the blue stairs doorway blocks headshot angles completely from the tunnel attackers.', 'active', '2026-09-30 21:26:14'),
+(8, 15, 11, 'The Spear locks on to gunships in 1 second now. One rocket destroys them reliably from across the entire map.', 'active', '2026-09-25 11:13:02'),
+(9, 26, 6, 'Throw the deep banana smoke at 1:48, then double molly car. Ts are forced to burn smoke or fall back to ramp.', 'active', '2026-08-23 08:59:49'),
+(10, 28, 9, 'Kapkan and Lesion are seeing massive pick rate spikes in Ranked right now because of the Solis nerf.', 'active', '2026-08-17 18:46:36')
+ON DUPLICATE KEY UPDATE content=VALUES(content), publish_date=VALUES(publish_date);
 
 INSERT INTO likes (id, author_id, target_type, target_id, type) VALUES
 (1, 1, 'post', 1, 'like'),
 (2, 3, 'post', 1, 'like'),
 (3, 4, 'post', 2, 'like'),
-(4, 5, 'comment', 1, 'like'),
-(5, 2, 'comment', 3, 'like')
+(4, 6, 'post', 2, 'like'),
+(5, 7, 'post', 7, 'like'),
+(6, 9, 'post', 13, 'like'),
+(7, 11, 'post', 15, 'like'),
+(8, 12, 'post', 9, 'like'),
+(9, 5, 'comment', 1, 'like'),
+(10, 2, 'comment', 2, 'like'),
+(11, 8, 'comment', 4, 'like'),
+(12, 14, 'comment', 8, 'like')
 ON DUPLICATE KEY UPDATE id=id;
 
 INSERT INTO favorites (user_id, post_id) VALUES
 (1, 1),
 (2, 2),
-(3, 3),
-(4, 4),
-(5, 5)
+(3, 7),
+(4, 9),
+(5, 13),
+(6, 15),
+(7, 26)
 ON DUPLICATE KEY UPDATE user_id=user_id;

@@ -53,14 +53,19 @@ class CommentService {
       throw new AppError('You do not have permission to update this comment.', 403);
     }
 
-    const updates = {};
-    if (updateData.status) {
-      updates.status = updateData.status;
+    if (updateData.content !== undefined && !isAuthor) {
+      throw new AppError('Only the author can edit comment content.', 403);
     }
 
-    if (Object.keys(updates).length > 0) {
-      await Comment.updateById(commentId, updates);
+    const fields = {};
+    if (updateData.status) fields.status = updateData.status;
+    if (updateData.content !== undefined && isAuthor) fields.content = updateData.content;
+
+    if (Object.keys(fields).length === 0) {
+      throw new AppError('No valid fields to update.', 400);
     }
+
+    await Comment.updateById(commentId, fields);
 
     return this.getCommentById(commentId);
   }

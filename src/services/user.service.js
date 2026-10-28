@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const User = require('../models/User');
 const Favorite = require('../models/Favorite');
 const AppError = require('../utils/AppError');
@@ -75,6 +75,14 @@ class UserService {
     }
 
     const allowedUpdates = {};
+
+    if (updateData.login) {
+      const existingLogin = await User.findByLogin(updateData.login);
+      if (existingLogin && Number(existingLogin.id) !== Number(targetUserId)) {
+        throw new AppError('Login is already in use.', 400);
+      }
+      allowedUpdates.login = updateData.login;
+    }
 
     if (updateData.full_name) allowedUpdates.full_name = updateData.full_name;
     if (updateData.email) {

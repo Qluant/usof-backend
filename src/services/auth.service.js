@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const User = require('../models/User');
 const mailService = require('./mail.service');
 const { generateJwtToken, generateRandomToken } = require('../utils/token.util');
@@ -49,10 +49,11 @@ class AuthService {
       throw new AppError('Invalid or expired confirmation token.', 400);
     }
 
-    await User.updateById(user.id, {
-      is_email_confirmed: true,
-      email_confirm_token: null
-    });
+    if (!user.is_email_confirmed) {
+      await User.updateById(user.id, {
+        is_email_confirmed: true
+      });
+    }
 
     return { message: 'Email confirmed successfully. You can now log in.' };
   }

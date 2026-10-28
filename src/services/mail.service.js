@@ -7,40 +7,46 @@ class MailService {
     this.transporter = nodemailer.createTransport({
       host: mailConfig.host,
       port: mailConfig.port,
-      auth: {
+      secure: mailConfig.port === 465,
+      auth: mailConfig.user ? {
         user: mailConfig.user,
         pass: mailConfig.pass
-      }
+      } : undefined
     });
   }
 
   async sendEmailConfirmation(email, token) {
-    const confirmationLink = `${appConfig.clientUrl}/api/auth/confirm-email/${token}`;
+    const confirmationLink = `${appConfig.clientUrl}/confirm-email/${token}`;
     const mailOptions = {
       from: mailConfig.from,
       to: email,
-      subject: 'USOF - Confirm Your Email Address',
+      subject: 'GamerEars - Confirm Your Player Account',
       html: `
-        <h2>Welcome to USOF!</h2>
-        <p>Please click the link below to confirm your email and activate your account:</p>
+        <h2>Welcome to GamerEars!</h2>
+        <p>Please click the link below to confirm your email and activate your player account:</p>
         <a href="${confirmationLink}">${confirmationLink}</a>
         <p>If you did not register for an account, please ignore this email.</p>
       `
     };
 
     if (mailConfig.user) {
-      await this.transporter.sendMail(mailOptions);
+      try {
+        await this.transporter.sendMail(mailOptions);
+      } catch (err) {
+        console.error(`[SMTP ERROR] Could not send to ${email}:`, err.message);
+        console.log(`[FALLBACK LINK] ${confirmationLink}`);
+      }
     } else {
       console.log(`[DEV MAIL] Email Confirmation for ${email}: ${confirmationLink}`);
     }
   }
 
   async sendPasswordReset(email, token) {
-    const resetLink = `${appConfig.clientUrl}/api/auth/password-reset/${token}`;
+    const resetLink = `${appConfig.clientUrl}/password-reset/${token}`;
     const mailOptions = {
       from: mailConfig.from,
       to: email,
-      subject: 'USOF - Password Reset Request',
+      subject: 'GamerEars - Password Reset Request',
       html: `
         <h2>Password Reset Request</h2>
         <p>You requested a password reset. Click the link below to set a new password:</p>
@@ -50,7 +56,12 @@ class MailService {
     };
 
     if (mailConfig.user) {
-      await this.transporter.sendMail(mailOptions);
+      try {
+        await this.transporter.sendMail(mailOptions);
+      } catch (err) {
+        console.error(`[SMTP ERROR] Could not send to ${email}:`, err.message);
+        console.log(`[FALLBACK LINK] ${resetLink}`);
+      }
     } else {
       console.log(`[DEV MAIL] Password Reset for ${email}: ${resetLink}`);
     }

@@ -4,7 +4,7 @@ const AppError = require('../utils/AppError');
 
 class CategoryService {
   async getAllCategories() {
-    return Category.findAll({}, 'title ASC');
+    return Category.findAllWithPostCount();
   }
 
   async getCategoryById(id) {

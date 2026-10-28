@@ -57,15 +57,19 @@ class PostService {
       throw new AppError('You do not have permission to update this post.', 403);
     }
 
+    if (!isAuthor && isAdmin) {
+      if (updateData.title !== undefined || updateData.content !== undefined) {
+        throw new AppError('Content is not editable even for admins.', 403);
+      }
+    }
+
     const postUpdates = {};
 
     if (isAuthor) {
       if (updateData.title) postUpdates.title = updateData.title;
       if (updateData.content) postUpdates.content = updateData.content;
       if (updateData.status) postUpdates.status = updateData.status;
-    }
-
-    if (isAdmin) {
+    } else if (isAdmin) {
       if (updateData.status) postUpdates.status = updateData.status;
     }
 
@@ -74,9 +78,7 @@ class PostService {
     }
 
     if (updateData.categories && Array.isArray(updateData.categories)) {
-      if (isAuthor || isAdmin) {
-        await Post.setCategories(postId, updateData.categories);
-      }
+      await Post.setCategories(postId, updateData.categories);
     }
 
     return this.getPostById(postId, currentUserRole, currentUserId);
