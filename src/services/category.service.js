@@ -8,7 +8,7 @@ class CategoryService {
   }
 
   async getCategoryById(id) {
-    const category = await Category.findById(id);
+    const category = await Category.findByIdWithPostCount(id);
     if (!category) {
       throw new AppError('Category not found.', 404);
     }
