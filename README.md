@@ -1,6 +1,6 @@
 # GamerEars Backend
 
-REST API for GamerEars — a Stack Overflow–style gaming community platform: game discussions, build guides, boss tactics, categories, comments, voting, roles (`user` / `admin`), email verification, and password reset.
+REST API for GamerEars - a Stack Overflow-style gaming community platform: game discussions, build guides, boss tactics, categories, comments, voting, roles (`user` / `admin`), email verification, and password reset.
 
 ## Features
 
