@@ -1,6 +1,7 @@
 const Post = require('../models/Post');
 const Category = require('../models/Category');
 const Favorite = require('../models/Favorite');
+const Like = require('../models/Like');
 const AppError = require('../utils/AppError');
 
 class PostService {
@@ -24,6 +25,11 @@ class PostService {
 
     if (currentUserId) {
       post.is_favorite = await Favorite.isFavorite(currentUserId, post.id);
+      const userVote = await Like.findByTargetAndAuthor('post', post.id, currentUserId);
+      post.user_vote = userVote ? userVote.type : null;
+    } else {
+      post.is_favorite = false;
+      post.user_vote = null;
     }
 
     return post;

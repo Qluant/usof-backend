@@ -12,19 +12,23 @@ class Post extends BaseModel {
         u.login as author_login,
         u.profile_picture as author_avatar,
         u.rating as author_rating,
-        COALESCE(SUM(CASE WHEN l.type = 'like' THEN 1 ELSE 0 END), 0) as likes_count,
-        COALESCE(SUM(CASE WHEN l.type = 'dislike' THEN 1 ELSE 0 END), 0) as dislikes_count,
-        (COALESCE(SUM(CASE WHEN l.type = 'like' THEN 1 ELSE 0 END), 0) - COALESCE(SUM(CASE WHEN l.type = 'dislike' THEN 1 ELSE 0 END), 0)) as score
+        CAST(COALESCE(SUM(CASE WHEN l.type = 'like' THEN 1 ELSE 0 END), 0) AS SIGNED) as likes_count,
+        CAST(COALESCE(SUM(CASE WHEN l.type = 'dislike' THEN 1 ELSE 0 END), 0) AS SIGNED) as dislikes_count,
+        CAST((COALESCE(SUM(CASE WHEN l.type = 'like' THEN 1 ELSE 0 END), 0) - COALESCE(SUM(CASE WHEN l.type = 'dislike' THEN 1 ELSE 0 END), 0)) AS SIGNED) as score
       FROM posts p
       JOIN users u ON u.id = p.author_id
       LEFT JOIN likes l ON l.target_type = 'post' AND l.target_id = p.id
       WHERE p.id = ?
-      GROUP BY p.id
+      GROUP BY p.id, u.id
     `;
     const [rows] = await this.db.query(sql, [id]);
     if (!rows[0]) return null;
 
     const post = rows[0];
+    post.likes_count = Number(post.likes_count) || 0;
+    post.dislikes_count = Number(post.dislikes_count) || 0;
+    post.score = Number(post.score) || 0;
+
     const catSql = `
       SELECT c.id, c.title 
       FROM categories c
@@ -121,15 +125,15 @@ class Post extends BaseModel {
         u.login as author_login,
         u.profile_picture as author_avatar,
         u.rating as author_rating,
-        COALESCE(SUM(CASE WHEN l.type = 'like' THEN 1 ELSE 0 END), 0) as likes_count,
-        COALESCE(SUM(CASE WHEN l.type = 'dislike' THEN 1 ELSE 0 END), 0) as dislikes_count,
-        (COALESCE(SUM(CASE WHEN l.type = 'like' THEN 1 ELSE 0 END), 0) - COALESCE(SUM(CASE WHEN l.type = 'dislike' THEN 1 ELSE 0 END), 0)) as score
+        CAST(COALESCE(SUM(CASE WHEN l.type = 'like' THEN 1 ELSE 0 END), 0) AS SIGNED) as likes_count,
+        CAST(COALESCE(SUM(CASE WHEN l.type = 'dislike' THEN 1 ELSE 0 END), 0) AS SIGNED) as dislikes_count,
+        CAST((COALESCE(SUM(CASE WHEN l.type = 'like' THEN 1 ELSE 0 END), 0) - COALESCE(SUM(CASE WHEN l.type = 'dislike' THEN 1 ELSE 0 END), 0)) AS SIGNED) as score
       FROM posts p
       JOIN users u ON u.id = p.author_id
       ${joinCategory}
       LEFT JOIN likes l ON l.target_type = 'post' AND l.target_id = p.id
       ${whereSql}
-      GROUP BY p.id
+      GROUP BY p.id, u.id
       ORDER BY ${orderClause}
       LIMIT ? OFFSET ?
     `;
@@ -138,6 +142,9 @@ class Post extends BaseModel {
     const [posts] = await this.db.query(dataSql, dataValues);
 
     for (const post of posts) {
+      post.likes_count = Number(post.likes_count) || 0;
+      post.dislikes_count = Number(post.dislikes_count) || 0;
+      post.score = Number(post.score) || 0;
       const catSql = `
         SELECT c.id, c.title 
         FROM categories c
