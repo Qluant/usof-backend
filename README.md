@@ -1,6 +1,6 @@
-# USOF Backend
+# GamerEars (USOF) Backend
 
-REST API for USOF - a Stack Overflow-style Q&A forum platform: discussions, categories, comments, voting, roles (`user` / `admin`), email verification, and password reset.
+REST API for GamerEars (USOF) - a gaming community and Q&A forum platform: discussions, categories, comments, voting, roles (`user` / `admin`), email verification, and password reset.
 
 ## Features
 
