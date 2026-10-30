@@ -1,6 +1,6 @@
-# GamerEars Backend
+# USOF Backend
 
-REST API for GamerEars - a Stack Overflow-style gaming community platform: game discussions, build guides, boss tactics, categories, comments, voting, roles (`user` / `admin`), email verification, and password reset.
+REST API for USOF - a Stack Overflow-style Q&A forum platform: discussions, categories, comments, voting, roles (`user` / `admin`), email verification, and password reset.
 
 ## Features
 
@@ -11,7 +11,7 @@ REST API for GamerEars - a Stack Overflow-style gaming community platform: game 
 - Role-based access control (`user` vs `admin`)
 - Moderation with content immutability for admins (admins can lock/unlock status and change categories; content is immutable)
 - Sorting (by likes / date, asc / desc) and filtering (by category, author, status)
-- Dynamic XP / rating calculation based on likes minus dislikes on user posts and comments
+- Dynamic rating calculation based on likes minus dislikes on user posts and comments
 - Avatar image uploads with Multer
 - Favorites system for saving posts
 
